@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore dotenv-rails .env.
+.env
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
