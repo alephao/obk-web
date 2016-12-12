@@ -1,0 +1,28 @@
+input:focus, textarea:focus { outline:none; }
+
+.input-container {
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.input {
+  display: inline-block;
+  font-size: 24px;
+  border: none;
+  border-bottom: 1px solid #999;
+  color: #333;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.textarea {
+  display: inline-block;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid #999;
+  color: #666;
+  padding-bottom: 5px;
+  width: 100%;
+}

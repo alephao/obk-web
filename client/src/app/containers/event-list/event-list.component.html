@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12" style="display: flex; flex-direction: row;">
+      <div class="search-bar-container">
+        <input type="text" placeholder="Search" class="search-bar">
+      </div>
+      <button class="add-button" [routerLink]="['', 'new-event']">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="list">
+        <li *ngFor="let event of events" class="list-item">
+          <div class="title">{{ event.title }}</div>
+          <div class="date">{{ event.start | date:'dd/MM/yyyy' }} from {{ event.start | date:'HH:mm' }} to {{ event.end | date:'HH:mm' }}</div>
+          <div class="desc">{{ event.description }}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

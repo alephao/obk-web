@@ -1,0 +1,58 @@
+input:focus { outline:none; }
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.list-item {
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.glyphicon-search {
+  display: inline-block;
+}
+
+.search-bar-container {
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.search-bar {
+  display: inline-block;
+  font-size: 24px;
+  border: none;
+  border-bottom: 1px solid #999;
+  color: #999;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.desc {
+  font-size: 14px;
+}
+
+.add-button {
+  background-color: #007aff;
+  border: none;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  width: 81px;
+  font-size: 24px;
+  transition: all 300ms ease;
+}
+
+.add-button:hover {
+  background-color: #006cd9;
+}

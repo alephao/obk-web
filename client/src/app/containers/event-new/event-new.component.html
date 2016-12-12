@@ -1,0 +1,46 @@
+<div class="container">
+  <form class="row" (submit)="createEvent()">
+    <div class="col-xs-12">
+      <input
+        name="newEventTitle"
+        [(ngModel)]="newEvent.title"
+        type="text"
+        class="form-control"
+        placeholder="Title">
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+      <input
+        name="newEventStartDate"
+        [(ngModel)]="newEvent.start"
+        type="text"
+        class="form-control datepicker"
+        placeholder="Starts at">
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+      <input
+        name="newEventEndDate"
+        [(ngModel)]="newEvent.end"
+        type="text"
+        class="form-control datepicker"
+        placeholder="Ends at">
+    </div>
+
+    <div class="col-xs-12">
+      <textarea
+        name="newEventDescription"
+        [(ngModel)]="newEvent.description"
+        cols="30"
+        rows="10"
+        class="form-control"
+        placeholder="Description"></textarea>
+    </div>
+
+    <div class="col-xs-12">
+      <input type="submit" class="btn btn-primary" value="Create">
+      <button class="btn btn-danger ">Discard</button>
+    </div>
+  </form>
+  <pre>{{ newEvent | json }}</pre>
+</div>
