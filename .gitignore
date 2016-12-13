@@ -45,6 +45,7 @@
 /client/npm-debug.log
 /client/testem.log
 /client/typings
+coverage
 
 # e2e
 /client/e2e/*.js
