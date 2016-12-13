@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore dotenv-rails .env.
+.env
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -42,6 +45,7 @@
 /client/npm-debug.log
 /client/testem.log
 /client/typings
+coverage
 
 # e2e
 /client/e2e/*.js

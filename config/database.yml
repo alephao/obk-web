@@ -17,11 +17,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: <%= ENV['OBKWEB_DB_HOST'] %>
+  port: <%= ENV['OBKWEB_DB_PORT'] %>
+  username: <%= ENV['OBKWEB_DB_USER'] %>
+  password: <%= ENV['OBKWEB_DB_PASSWORD'] %>
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: obk
-  password: 08k
 
 development:
   <<: *default
@@ -83,5 +85,3 @@ test:
 production:
   <<: *default
   database: obkweb_production
-  username: obkweb
-  password: <%= ENV['OBKWEB_DATABASE_PASSWORD'] %>
