@@ -17,5 +17,8 @@ before_script:
 
 cache: bundler
 
+notifications:
+  slack: socialcolab:JgDTv1GQZ5jsyTk1GcrV4TFw
+
 script:
   - bundle exec rspec
