@@ -4,6 +4,7 @@ class Volunteer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # rubocop:disable Rails/HasAndBelongsToMany
   has_and_belongs_to_many :events
 
   def self.add(first_name, last_name, email, dob, password)
@@ -18,5 +19,4 @@ class Volunteer < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}".trim
   end
-
 end

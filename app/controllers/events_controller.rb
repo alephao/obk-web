@@ -15,37 +15,13 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
+    @event = Event.new(event_params)
 
-    if event_params[:title].nil? || event_params[:description].nil? || event_params[:start].nil? || event_params[:end].nil?
-      render :json => { error: "Information missing" }
-      return
+    if @event.save
+      render json: @event, status: :created, location: @event
+    else
+      render json: @event.errors, status: :unprocessable_entity
     end
-
-    if event_params[:title].size < 5
-      render :json => { error: "Title too small" }
-      return
-    elsif event_params[:description].size < 5
-      render :json => { error: "Description too small" }
-      return
-    end
-
-    begin
-      # dd-MM-yyyy'T'HH:mm
-      startTime = DateTime.parse(event_params[:start])
-      endTime = DateTime.parse(event_params[:end])
-
-      @event = Event.new(event_params)
-
-      if @event.save
-        render json: @event, status: :created, location: @event
-      else
-        render json: @event.errors, status: :unprocessable_entity
-      end
-
-    rescue Exception => e
-      render json: { error: "Bad date format" }
-    end
-
   end
 
   # PATCH/PUT /events/1
@@ -63,13 +39,14 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def event_params
-      params.require(:event).permit(:title, :description, :start, :end)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def event_params
+    params.require(:event).permit(:title, :description, :start, :end)
+  end
 end

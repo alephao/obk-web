@@ -13,9 +13,7 @@ class Admin < ApplicationRecord
     adm
   end
 
-
   def full_name
     "#{first_name} #{last_name}".trim
   end
-
 end
