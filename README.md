@@ -1,4 +1,4 @@
-## Our Big Kitchen App
+## Our Big Kitchen App [![Build Status](https://travis-ci.org/alaphao/obk-web.svg?branch=master)](https://travis-ci.org/alaphao/obk-web)
 Our Big Kitchen ([OBK](http://www.obk.org.au)) is an amazing non-profit organization, based in Bondi, Sydney, Australia.
 Its industrial kitchen is certified (Kosher, Halal, HACCP), and anyone from the community can cook food, either for those
 who need it the most, or to start their own food business.

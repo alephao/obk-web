@@ -13,6 +13,9 @@ gem 'devise'
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
+gem 'omniauth', '1.3.1'
+gem 'devise_token_auth', '0.1.39'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -34,6 +37,7 @@ group :development, :test do
   gem 'rubocop', '0.42.0', require: false
   gem 'bullet', '5.4.0'
   gem 'rspec-rails', '3.5.2'
+  gem 'factory_girl_rails', '4.7.0'
 end
 
 group :development do
@@ -46,6 +50,7 @@ end
 group :test do
   gem 'simplecov', '0.12.0', :require => false
   gem 'database_cleaner', '1.5.3'
+  gem 'ffaker', '2.2.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
