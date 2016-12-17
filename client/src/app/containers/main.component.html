@@ -1,9 +1,22 @@
 <div class="app-container">
   <app-navbar></app-navbar>
-  <main class="main">
-    <app-sidenav></app-sidenav>
-    <div class="content">
+  <app-sidenav></app-sidenav>
+  <div class="content-wrapper" style="min-height: 298px;">
+
+    <!-- Main content -->
+    <section class="content">
+
       <router-outlet></router-outlet>
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      OurBigKitchen
     </div>
-  </main>
+    <!-- Default to the left -->
+    <strong>Created with ❤️ by <a href="https://github.com/alaphao/obk-web/graphs/contributors">Volunteers</a>.</strong>
+  </footer>
 </div>
