@@ -1,5 +1,6 @@
 class VolunteersController < ApplicationController
-  before_action :set_volunteer, only: [:show, :update, :destroy]
+  before_action :authenticate_volunteer!
+  before_action :set_volunteer, only: [:show, :profile, :update, :destroy]
 
   # GET /volunteers
   def index
@@ -13,15 +14,9 @@ class VolunteersController < ApplicationController
     render json: @volunteer
   end
 
-  # POST /volunteers
-  def create
-    @volunteer = Volunteer.new(volunteer_params)
-
-    if @volunteer.save
-      render json: @volunteer, status: :created, location: @volunteer
-    else
-      render json: @volunteer.errors, status: :unprocessable_entity
-    end
+  # GET /volunteers/1/profile
+  def profile
+    render json: @volunteer, serializer: VolunteerProfileSerializer
   end
 
   # PATCH/PUT /volunteers/1
@@ -29,7 +24,7 @@ class VolunteersController < ApplicationController
     if @volunteer.update(volunteer_params)
       render json: @volunteer
     else
-      render json: @volunteer.errors, status: :unprocessable_entity
+      render json: { status: 'error', errors: @volunteer.errors }, status: :unprocessable_entity
     end
   end
 
@@ -47,6 +42,7 @@ class VolunteersController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def volunteer_params
-    params.fetch(:volunteer, {})
+    params.require(:volunteer).permit(:first_name, :last_name, :email, :mobile_number,
+                                      :landline_number, :dob, :wwccn, :sub_newsletter)
   end
 end

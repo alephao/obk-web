@@ -9,6 +9,8 @@ class Volunteer < ApplicationRecord
   # rubocop:disable Rails/HasAndBelongsToMany
   has_and_belongs_to_many :events
 
+  validates :email, presence: true
+
   def self.add(first_name, last_name, email, dob, password)
     v = Volunteer.find_or_create_by first_name: first_name, last_name: last_name, email: email, dob: dob
     unless v.nil?
@@ -20,5 +22,9 @@ class Volunteer < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}".trim
+  end
+
+  def as_json(options = nil)
+    ActiveModelSerializers::SerializableResource.new(self).as_json
   end
 end
