@@ -25,11 +25,11 @@ describe 'Volunteer', :type => :request do
 
         response_json = JSON.parse(response.body)
 
-        expect(response_json['data']['id'].to_s).to_not be_empty
-        expect(response_json['data']['uid']).to eq(valid_attributes[:email])
-        expect(response_json['data']['email']).to eq(valid_attributes[:email])
-        expect(response_json['data']['first_name']).to eq(valid_attributes[:first_name])
-        expect(response_json['data']['last_name']).to eq(valid_attributes[:last_name])
+        expect(response_json['data']['volunteer']['id'].to_s).to_not be_empty
+        expect(response_json['data']['volunteer']['uid']).to eq(valid_attributes[:email])
+        expect(response_json['data']['volunteer']['email']).to eq(valid_attributes[:email])
+        expect(response_json['data']['volunteer']['first_name']).to eq(valid_attributes[:first_name])
+        expect(response_json['data']['volunteer']['last_name']).to eq(valid_attributes[:last_name])
       end
 
       it 'should receives the authentication info in the header' do
@@ -94,9 +94,9 @@ describe 'Volunteer', :type => :request do
       end
 
       it 'should receives the user data in the body' do
-        expect(@response_json['data']['id']).to eq(volunteer.id)
-        expect(@response_json['data']['email']).to eq(volunteer.email)
-        expect(@response_json['data']['uid']).to eq(volunteer.email)
+        expect(@response_json['data']['volunteer']['id']).to eq(volunteer.id)
+        expect(@response_json['data']['volunteer']['email']).to eq(volunteer.email)
+        expect(@response_json['data']['volunteer']['uid']).to eq(volunteer.email)
       end
     end
 
@@ -140,7 +140,7 @@ describe 'Volunteer', :type => :request do
 
         it 'should get volunteers profile with restricted fields' do
           response_json = JSON.parse(response.body)
-          expect(response_json.keys - volunteers_restricted_fields). to be_empty
+          expect(response_json['volunteer'].keys - volunteers_restricted_fields). to be_empty
         end
       end
 
@@ -166,7 +166,7 @@ describe 'Volunteer', :type => :request do
 
         it 'should get the volunteer updated' do
           response_json = JSON.parse(response.body)
-          expect(response_json['first_name']).to eq(new_attributes[:first_name])
+          expect(response_json['volunteer']['first_name']).to eq(new_attributes[:first_name])
         end
       end
 
