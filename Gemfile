@@ -15,6 +15,7 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 gem 'omniauth', '1.3.1'
 gem 'devise_token_auth', '0.1.39'
+gem 'kaminari', '0.17.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
