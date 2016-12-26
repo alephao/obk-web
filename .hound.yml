@@ -1,3 +1,9 @@
+jshint:
+  enabled: false
+
+eshint:
+  enabled: false
+
 ruby:
   config_file: .rubocop.yml
 
