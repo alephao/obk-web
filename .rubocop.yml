@@ -10,6 +10,7 @@ AllCops:
     - 'tmp/**/*'
     - 'config/puma.rb'
     - 'db/**/*'
+    - 'client/**/*'
 
 Documentation:
   Enabled: false

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admins
   scope '/api' do
     mount_devise_token_auth_for 'Volunteer', at: 'volunteers', skip: [:omniauth_callbacks, :registrations]
     devise_scope :volunteer do
@@ -7,6 +6,8 @@ Rails.application.routes.draw do
       resource :registration, only: [:create, :update], path: 'volunteers/sign_up',
                               controller: 'devise_token_auth/registrations', as: :volunteer_registration
     end
+
+    mount_devise_token_auth_for 'Admin', at: 'admins', skip: [:registrations]
 
     resources :events, only: [:index] do
       member do

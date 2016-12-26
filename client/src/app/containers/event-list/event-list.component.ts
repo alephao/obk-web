@@ -15,7 +15,7 @@ export class EventListComponent implements OnInit {
 
   ngOnInit() {
     this.http.get('/api/events.json')
-      .subscribe(response => this.events = response.json());
+      .subscribe(response => this.events = response.json().events);
   }
 
 }

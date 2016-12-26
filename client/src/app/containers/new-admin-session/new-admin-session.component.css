@@ -1,0 +1,22 @@
+.admin-title {
+  color: #303030;
+  text-align: center;
+  margin-bottom: 50px;
+
+  font-weight: bold;
+  font-size: 32px;
+}
+
+form.login-form {
+  margin-top: 100px;
+  background-color: #fefefe;
+  padding: 30px;
+}
+
+input.form-control {
+
+}
+
+button.signin-button {
+  width: 100%;
+}

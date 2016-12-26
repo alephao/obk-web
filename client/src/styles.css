@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-  background-color: #F0F0F0;
+@import "../src/assets/css/AdminLTE.min.css";
+@import "../src/assets/css/skins/skin-blue.min.css";
+
+html, body, .wrapper {
+  min-height: 100vh;
 }
