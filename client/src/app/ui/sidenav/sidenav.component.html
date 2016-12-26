@@ -1,10 +1,10 @@
 <aside class="main-sidebar">
   <section class="sidebar">
     <!-- Sidebar Menu -->
-    <ul class="sidebar-menu">
+    <ul class="sidebar-menu" *ngIf="userSignedIn()">
       <li class="header">MENU</li>
-      <li class="active"><a href="#" [routerLink]="['']"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
       <li><a href="#" [routerLink]="['', 'events']"><i class="fa fa-link"></i> <span>Events</span></a></li>
+      <li><a href="#" (click)="signOut()"><i class="fa fa-link"></i> <span>Sign out</span></a></li>
     </ul>
     <!-- /.sidebar-menu -->
   </section>
