@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-describe 'Admin', :type => :request do
+describe 'Admin::Admins', :type => :request do
   let(:valid_attributes) { attributes_for(:admin) }
   let(:invalid_attributes) { attributes_for(:admin).merge(email: nil) }
   let(:admin) { create(:admin) }
 
-  describe 'POST /api/admins/sign_in' do
+  describe 'POST /api/admin/admins/sign_in' do
     let(:valid_credentials) { { email: admin.email, password: admin.password } }
     let(:invalid_credentials) { { email: admin.email, password: 'invalidpassword' } }
 
     describe 'with valid credentials' do
       before do
-        post '/api/admins/sign_in', params: valid_credentials
+        post '/api/admin/admins/sign_in', params: valid_credentials
         @response_json = JSON.parse(response.body)
         @response_header = response.headers
       end
@@ -37,7 +37,7 @@ describe 'Admin', :type => :request do
 
     describe 'with invalid credentials' do
       before do
-        post '/api/admins/sign_in', params: invalid_credentials
+        post '/api/admin/admins/sign_in', params: invalid_credentials
         @response_json = JSON.parse(response.body)
         @response_header = response.headers
       end
