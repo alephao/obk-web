@@ -1,16 +1,24 @@
-<div class="app-container">
+<!-- Site wrapper -->
+<div class="wrapper">
   <app-navbar></app-navbar>
+
+  <!-- =============================================== -->
+
   <app-sidenav></app-sidenav>
-  <div class="content-wrapper" style="min-height: 298px;">
+
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <app-header-name></app-header-name>
 
     <!-- Main content -->
     <section class="content">
-
       <router-outlet></router-outlet>
-
     </section>
-    <!-- /.content -->
   </div>
+  <!-- /.content-wrapper -->
+
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
@@ -20,3 +28,4 @@
     <strong>Created with ❤️ by <a href="https://github.com/alaphao/obk-web/graphs/contributors">Volunteers</a>.</strong>
   </footer>
 </div>
+<!-- ./wrapper -->

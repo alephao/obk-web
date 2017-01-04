@@ -17,9 +17,4 @@ export class SidenavComponent implements OnInit {
   userSignedIn(): boolean {
     return this.adminService.userSignedIn();
   }
-
-  signOut() {
-    this.adminService.signOut();
-  }
-
 }
