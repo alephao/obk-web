@@ -7,9 +7,9 @@ export class AdminService {
   constructor(private _tokenService: Angular2TokenService,
               private router: Router) {
     this._tokenService.init({
-      signInPath:                 '/api/admins/sign_in',
-      signOutPath:                '/api/admins/sign_out',
-      validateTokenPath:          '/api/admins/validate_token',
+      signInPath:                 '/api/admin/admins/sign_in',
+      signOutPath:                '/api/admin/admins/sign_out',
+      validateTokenPath:          '/api/admin/admins/validate_token',
       globalOptions: {
         headers: {
           'Content-Type':     'application/json',

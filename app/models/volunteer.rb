@@ -9,15 +9,18 @@ class Volunteer < ApplicationRecord
   # rubocop:disable Rails/HasAndBelongsToMany
   has_and_belongs_to_many :events
 
-  validates :first_name, :last_name, :email, :dob, :mobile_number, presence: true
+  validates :first_name, :last_name, :email, :dob, :mobile_number, :gender, presence: true
   validates :email, email: true, uniqueness: true
-  validates :wwccn, presence: true, if: ['!dob.nil?', :more_than_eighteen?]
   validates :gender, inclusion: { in: %w(M F O) }
+  validates :wwccn, presence: true, if: ['!dob.nil?', :more_than_eighteen?]
 
-  def self.add(first_name, last_name, email, dob, password)
-    v = Volunteer.find_or_create_by first_name: first_name, last_name: last_name, email: email, dob: dob
+  def self.add(params = {})
+    v = Volunteer.find_or_create_by params.slice(:first_name, :last_name, :email, :dob)
     unless v.nil?
-      v.password = v.password_confirmation = password
+      v.password = v.password_confirmation = params[:password]
+      v.mobile_number = params[:mobile_number]
+      v.gender = params[:gender]
+      v.wwccn = params[:wwccn]
       v.save
     end
     v
