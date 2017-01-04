@@ -7,8 +7,6 @@ Rails.application.routes.draw do
                               controller: 'devise_token_auth/registrations', as: :volunteer_registration
     end
 
-    mount_devise_token_auth_for 'Admin', at: 'admins', skip: [:registrations]
-
     resources :events, only: [:index] do
       member do
         put 'join'
@@ -19,6 +17,11 @@ Rails.application.routes.draw do
       member do
         get 'profile'
       end
+    end
+
+    namespace :admin do
+      mount_devise_token_auth_for 'Admin', at: 'admins', skip: [:registrations, :omniauth_callbacks]
+      resources :events
     end
   end
 end

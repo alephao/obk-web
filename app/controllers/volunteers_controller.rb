@@ -42,7 +42,7 @@ class VolunteersController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def volunteer_params
-    params.require(:volunteer).permit(:first_name, :last_name, :email, :mobile_number,
+    params.require(:volunteer).permit(:first_name, :last_name, :email, :mobile_number, :gender,
                                       :landline_number, :dob, :wwccn, :sub_newsletter)
   end
 end

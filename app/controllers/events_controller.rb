@@ -15,17 +15,6 @@ class EventsController < ApplicationController
     render json: @event
   end
 
-  # POST /events
-  def create
-    @event = Event.new(event_params)
-
-    if @event.save
-      render json: @event, status: :created, location: @event
-    else
-      render json: @event.errors, status: :unprocessable_entity
-    end
-  end
-
   # PUT /events
   def join
     return render status: :no_content if @event.volunteers.include?(current_volunteer)
@@ -44,20 +33,6 @@ class EventsController < ApplicationController
       logger.error(error)
       render status: :internal_server_error
     end
-  end
-
-  # PATCH/PUT /events/1
-  def update
-    if @event.update(event_params)
-      render json: @event
-    else
-      render json: @event.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /events/1
-  def destroy
-    @event.destroy
   end
 
   private
