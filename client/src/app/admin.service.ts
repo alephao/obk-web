@@ -37,6 +37,6 @@ export class AdminService {
   }
 
   signOut() {
-    this._tokenService.signOut().subscribe(res => this.router.navigate(['']));
+    this._tokenService.signOut().subscribe(res => this.router.navigate(['/sign-in']));
   }
 }

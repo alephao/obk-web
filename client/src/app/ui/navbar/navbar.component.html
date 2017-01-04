@@ -1,24 +1,29 @@
 <header class="main-header">
   <!-- Logo -->
-  <a href="index2.html" class="logo">
+  <a href="/" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>A</b>LT</span>
+    <span class="logo-mini"><b>OBK</b></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Admin</b>LTE</span>
+    <span class="logo-lg"><b>OBK</b>&nbsp;WEB</span>
   </a>
-
-  <!-- Header Navbar -->
-  <nav class="navbar navbar-static-top" role="navigation">
+  <!-- Header Navbar: style can be found in header.less -->
+  <nav class="navbar navbar-static-top">
     <!-- Sidebar toggle button-->
     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
       <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
     </a>
-    <!-- Navbar Right Menu -->
+
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <!-- Control Sidebar Toggle Button -->
+        <p class="navbar-text text-white">Hello, <b>Admin</b></p>
         <li>
-          <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          <a href="javascript:void(0)" (click)="signOut()">
+            <span class="fa fa-sign-out"></span>
+            <span>Sign out</span>
+          </a>
         </li>
       </ul>
     </div>

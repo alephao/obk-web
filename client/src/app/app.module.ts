@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { Angular2TokenService } from 'angular2-token';
 
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { EventListComponent } from './containers/event-list/event-list.component';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { EventNewComponent } from './containers/event-new/event-new.component';
@@ -14,16 +15,19 @@ import { MainComponent } from './containers/main.component';
 import { SidenavComponent } from './ui/sidenav/sidenav.component';
 import { NewAdminSessionComponent } from './containers/new-admin-session/new-admin-session.component';
 import { AuthGuard } from "./auth-guard";
+import {HeaderNameComponent} from "./ui/header-name/header-name.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
     EventListComponent,
     NavbarComponent,
     EventNewComponent,
     MainComponent,
     SidenavComponent,
     NewAdminSessionComponent,
+    HeaderNameComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,3 @@ main.main {
   display: flex;
   flex-direction: row;
 }
-
-.content {
-  margin-top: 70px;
-}

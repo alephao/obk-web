@@ -1,46 +1,66 @@
-<div class="container">
-  <form class="row" (submit)="createEvent()">
-    <div class="col-xs-12">
-      <input
-        name="newEventTitle"
-        [(ngModel)]="newEvent.title"
-        type="text"
-        class="form-control"
-        placeholder="Title">
+<div class="row">
+  <div class="col-md-12">
+    <div class="box no-border">
+      <!-- form start -->
+      <form (submit)="createEvent()">
+        <div class="box-body">
+          <div class="form-group">
+            <label for="inputName1" class="control-label">
+              Title <span class="text-red" title="Mandatory">*</span>
+            </label>
+            <input name="newEventTitle"
+                [(ngModel)]="newEvent.title"
+                type="text"
+                class="form-control" />
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputName1" class="control-label">
+                  Starts at <span class="text-red" title="Mandatory">*</span>
+                </label>
+                <input
+                  name="newEventStartDate"
+                  [(ngModel)]="newEvent.start"
+                  type="text"
+                  class="form-control datepicker" />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputName1" class="control-label">
+                  Ends at <span class="text-red" title="Mandatory">*</span>
+                </label>
+                <input
+                  name="newEventEndDate"
+                  [(ngModel)]="newEvent.end"
+                  type="text"
+                  class="form-control datepicker" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputName1" class="control-label">
+              Description <span class="text-red" title="Mandatory">*</span>
+            </label>
+            <textarea
+              name="newEventDescription"
+              [(ngModel)]="newEvent.description"
+              cols="30"
+              rows="10"
+              class="form-control"></textarea>
+          </div>
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+          <a [routerLink]="['/events']" class="btn btn-default">
+            Discard
+          </a>
+          <button type="submit" class="btn btn-primary pull-right">
+            Create
+          </button>
+        </div><!-- /.box-footer -->
+      </form>
     </div>
-
-    <div class="col-xs-12 col-md-6">
-      <input
-        name="newEventStartDate"
-        [(ngModel)]="newEvent.start"
-        type="text"
-        class="form-control datepicker"
-        placeholder="Starts at">
-    </div>
-
-    <div class="col-xs-12 col-md-6">
-      <input
-        name="newEventEndDate"
-        [(ngModel)]="newEvent.end"
-        type="text"
-        class="form-control datepicker"
-        placeholder="Ends at">
-    </div>
-
-    <div class="col-xs-12">
-      <textarea
-        name="newEventDescription"
-        [(ngModel)]="newEvent.description"
-        cols="30"
-        rows="10"
-        class="form-control"
-        placeholder="Description"></textarea>
-    </div>
-
-    <div class="col-xs-12">
-      <input type="submit" class="btn btn-primary" value="Create">
-      <button class="btn btn-danger ">Discard</button>
-    </div>
-  </form>
-  <pre>{{ newEvent | json }}</pre>
+    <pre>{{ newEvent | json }}</pre>
+  </div>
 </div>

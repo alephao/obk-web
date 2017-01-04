@@ -5,3 +5,7 @@
 html, body, .wrapper {
   min-height: 100vh;
 }
+
+.text-white {
+  color: #ffffff !important;
+}
