@@ -27,7 +27,7 @@ class EventsController < ApplicationController
   # PUT /events
   def join
     if @event.volunteers.include?(current_volunteer)
-      return render json: { status: 'error', errors: [t(:volunteer_already_joined)] }, status: :unprocessable_entity
+      return render json: { status: 'error', errors: [I18n.t(:volunteer_already_joined)] }, status: :unprocessable_entity
     end
 
     begin

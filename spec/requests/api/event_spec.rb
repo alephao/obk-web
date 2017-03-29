@@ -65,8 +65,8 @@ describe 'Event', :type => :request do
         put "/api/events/#{future_lunch_at_noon.id}/join", headers: @auth_headers
       end
 
-      it 'should get the response status :no_content' do
-        expect(response).to have_http_status(:no_content)
+      it 'should get the response status :unprocessable_entity' do
+        expect(response).to have_http_status(:unprocessable_entity)
       end
 
       it 'should count the volunteer again' do
