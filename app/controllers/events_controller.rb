@@ -7,6 +7,13 @@ class EventsController < ApplicationController
   def index
     events = Event.upcoming.page(params[:page])
 
+    if current_volunteer
+      volunteer_events = current_volunteer.events
+      events.each do |ev|
+        ev.going! if volunteer_events.include?(ev)
+      end
+    end
+
     render json: events, meta: paginate(events)
   end
 
@@ -17,7 +24,9 @@ class EventsController < ApplicationController
 
   # PUT /events
   def join
-    return render status: :no_content if @event.volunteers.include?(current_volunteer)
+    if @event.volunteers.include?(current_volunteer)
+      return render json: { status: 'error', errors: [I18n.t(:volunteer_already_joined)] }, status: :unprocessable_entity
+    end
 
     begin
       Event.transaction do
@@ -29,7 +38,7 @@ class EventsController < ApplicationController
     rescue ActiveRecord::RecordInvalid => invalid_error
       render json: { status: 'error', errors: invalid_error.record.errors }, status: :unprocessable_entity
     rescue StandardError => error
-      logger.debug("Volunteer #{current_volunteer.id} tried join to #{@event.id} and failed")
+      logger.debug("Volunteer #{current_volunteer.id} tried joining to #{@event.id} and failed")
       logger.error(error)
       render status: :internal_server_error
     end
