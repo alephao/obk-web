@@ -10,9 +10,7 @@ class EventsController < ApplicationController
     if current_volunteer
       volunteer_events = current_volunteer.events
       events.each do |ev|
-        if volunteer_events.include?(ev)
-          ev.instance_variable_set(:@going, true)
-        end
+        ev.going! if volunteer_events.include?(ev)
       end
     end
 

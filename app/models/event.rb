@@ -13,4 +13,10 @@ class Event < ApplicationRecord
       errors.add(:start_date, "can't be in the past")
     end
   end
+
+  # only used to flag if a volunteer has subscribed to this event
+  def going!
+    @going = true
+  end
+
 end
