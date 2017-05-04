@@ -7,9 +7,10 @@ Rails.application.routes.draw do
                               controller: 'devise_token_auth/registrations', as: :volunteer_registration
     end
 
-    resources :events, only: [:index] do
+    resources :events, only: [:index, :show] do
       member do
         put 'join'
+        put 'resign'
       end
     end
 
