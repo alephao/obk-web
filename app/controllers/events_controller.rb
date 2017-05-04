@@ -49,6 +49,10 @@ class EventsController < ApplicationController
       return render json: { status: 'error', errors: [I18n.t(:volunteer_not_joined)] }, status: :unprocessable_entity
     end
 
+    if @event.expired?
+      return render json: { status: 'error', errors: [I18n.t(:event_has_expired)] }, status: :unprocessable_entity
+    end
+
     begin
       Event.transaction do
         @event.volunteers.delete current_volunteer
