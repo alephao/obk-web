@@ -14,6 +14,10 @@ class Event < ApplicationRecord
     end
   end
 
+  def expired?
+    end_date < Time.zone.today
+  end
+
   # only used to flag if a volunteer has subscribed to this event
   def going!
     @going = true
