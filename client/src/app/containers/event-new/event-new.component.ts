@@ -4,6 +4,8 @@ import {
   Output,
   EventEmitter } from '@angular/core';
 import {Http} from "@angular/http";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-event-new',
@@ -16,20 +18,25 @@ export class EventNewComponent implements OnInit {
   newEvent = {
     title: "",
     description: "",
-    start: "",
-    end: ""
+    start_date: "",
+    end_date: ""
   };
 
-  createEvent() {
-    const { title, description, start, end } = this.newEvent;
+  constructor(private http: Http, private router: Router) { }
 
-    if (title && description && start && end) {
-      this.http.post("http://localhost:3000/api/events", this.newEvent)
+  ngOnInit() {
+  }
+
+  createEvent() {
+    const { title, description, start_date, end_date } = this.newEvent;
+
+    if (title && description && start_date && end_date) {
+      this.http.post("/api/admin/events", this.newEvent)
         //.map(res => res.json())
         .subscribe(
           data => console.log(data),
           err => console.log(err),
-          () => console.log("Tey")
+          () => this.router.navigate(['/events'])
         );
       // this.reset();
     } else {
@@ -41,16 +48,9 @@ export class EventNewComponent implements OnInit {
     this.newEvent = {
       title: "",
       description: "",
-      start: "",
-      end: ""
+      start_date: "",
+      end_date: ""
     };
-  }
-
-  constructor(public http: Http) {
-
-  }
-
-  ngOnInit() {
   }
 
 }

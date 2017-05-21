@@ -11,11 +11,15 @@ export class AuthGuard implements CanActivate {
   canActivate(): Observable<boolean>|boolean {
     return Observable.create(observer => {
       this._tokenService.validateToken().subscribe(
-        res => observer.complete(),
+        res => {
+          observer.next(true);
+          observer.complete();
+        },
         err => {
           this.router.navigate(['/sign-in']);
           observer.next(false);
-        })
+        }
+      )
     })
   }
 }

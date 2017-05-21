@@ -5,9 +5,9 @@ ruby '~> 2.3.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma'
 
 gem 'devise'
 
@@ -16,7 +16,7 @@ gem 'railties'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 gem 'omniauth', '1.3.1'
-gem 'devise_token_auth', '0.1.39'
+gem 'devise_token_auth' #, '0.1.42'
 gem 'kaminari', '0.17.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
