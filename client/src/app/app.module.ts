@@ -15,7 +15,8 @@ import { MainComponent } from './containers/main.component';
 import { SidenavComponent } from './ui/sidenav/sidenav.component';
 import { NewAdminSessionComponent } from './containers/new-admin-session/new-admin-session.component';
 import { AuthGuard } from "./auth-guard";
-import {HeaderNameComponent} from "./ui/header-name/header-name.component";
+import { HeaderNameComponent } from "./ui/header-name/header-name.component";
+import { EventSearchPipe } from "./containers/event-list/event-search-pipe";
 
 @NgModule({
   declarations: [
@@ -28,14 +29,20 @@ import {HeaderNameComponent} from "./ui/header-name/header-name.component";
     SidenavComponent,
     NewAdminSessionComponent,
     HeaderNameComponent,
+    EventSearchPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    HomeLibraryRoutingModule
+    HomeLibraryRoutingModule,
   ],
-  providers: [Angular2TokenService, AuthGuard],
-  bootstrap: [AppComponent]
+  providers: [
+    Angular2TokenService,
+    AuthGuard
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

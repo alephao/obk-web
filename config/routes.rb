@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     namespace :admin do
       mount_devise_token_auth_for 'Admin', at: 'admins', skip: [:registrations, :omniauth_callbacks]
       resources :events
+      get 'dashboard/summary', to: 'dashboard#summary', as: :dashboard_summary
     end
   end
 end

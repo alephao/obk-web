@@ -1,6 +1,6 @@
 class Admin::EventsController < ApplicationController
   include Paginatable
-  before_action :authenticate_admin_admin!
+  before_action :authenticate_admin_admin!, except: [:create]
   before_action :set_event, only: [:show, :update, :destroy]
 
   # GET /events
