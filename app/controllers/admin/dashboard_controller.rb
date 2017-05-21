@@ -15,5 +15,4 @@ class Admin::DashboardController < ApplicationController
 
     render json: info
   end
-
 end
