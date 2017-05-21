@@ -88,7 +88,7 @@ describe 'Event', :type => :request do
         json_body = JSON.parse(response.body)
         expect(json_body).to have_key('errors')
         expect(json_body['errors'].size).to eq(1)
-        expect(json_body['errors'].first).to eq('Authorized users only.')
+        expect(json_body['errors'].first).to eq('You need to sign in or sign up before continuing.')
       end
     end
   end
@@ -142,7 +142,7 @@ describe 'Event', :type => :request do
         json_body = JSON.parse(response.body)
         expect(json_body).to have_key('errors')
         expect(json_body['errors'].size).to eq(1)
-        expect(json_body['errors'].first).to eq('Authorized users only.')
+        expect(json_body['errors'].first).to eq('You need to sign in or sign up before continuing.')
       end
     end
 
